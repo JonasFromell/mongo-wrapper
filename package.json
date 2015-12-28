@@ -1,0 +1,38 @@
+{
+  "name": "mongo-wrapper",
+  "version": "0.0.1",
+  "description": "A lightweight wrapper around the native MongoDB driver",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "options": {
+    "mocha": "--require scripts/mocha-bootload src/**/__tests__/**/*.js"
+  },
+  "scripts": {
+    "build": "rm -rf lib/* && ./node_modules/.bin/babel src --ignore __tests__ --optional runtime --out-dir lib",
+    "test": "mocha $npm_package_options_mocha"
+  },
+  "keywords": [
+    "mongo",
+    "mongo-db"
+  ],
+  "author": "Jonas Fromell",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/jonasfromell/mongo-wrapper.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^2.1.2"
+  },
+  "devDependencies": {
+    "babel": "^6.3.26",
+    "babel-cli": "^6.3.17",
+    "babel-preset-stage-0": "^6.3.13",
+    "chai": "^3.4.1",
+    "chai-as-promised": "^5.2.0",
+    "mocha": "^2.3.4"
+  }
+}
