@@ -1,6 +1,5 @@
-require('babel/register')({
-  optional: ['runtime']
-});
+require('babel-register');
+require('babel-polyfill');
 
 var chai = require('chai');
 var asPromised = require('chai-as-promised');
