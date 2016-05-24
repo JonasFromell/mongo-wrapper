@@ -26,21 +26,9 @@ export default class Mongo {
       MongoClient.connect(uri, (error, db) => {
         if (error) {
           reject(error)
+        } else {
+          Mongo.db = db;
         }
-
-        // Wrap the Mongo instance connection object
-        // This enables the use of syntax: `db.collection_name`
-        Mongo.db = new Proxy(db, {
-          get: (target, name) => {
-            let col = db.collection(new String(name))
-
-            if (!col) {
-              return Reflect.get(target, name)
-            }
-
-            return col
-          }
-        })
 
         // Resolve promise
         resolve(Mongo.db)
