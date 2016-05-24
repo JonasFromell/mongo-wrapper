@@ -30,7 +30,7 @@ export default class Mongo {
 
         // Wrap the Mongo instance connection object
         // This enables the use of syntax: `db.collection_name`
-        Mongo.db = new Proxy({}, {
+        Mongo.db = new Proxy(db, {
           get: (target, name) => {
             let col = db.collection(new String(name))
 
